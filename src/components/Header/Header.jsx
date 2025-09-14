@@ -1,9 +1,12 @@
 import css from './Header.module.css';
+import Logo from '../Logo/Logo.jsx';
+import MainNav from '../MainNav/MainNav.jsx';
 
 export default function Header() {
   return (
-    <header>
-      <div className={css.wrapper}>HEADER</div>
+    <header className={css.wrapper}>
+      <Logo />
+      <MainNav />
     </header>
   );
 }

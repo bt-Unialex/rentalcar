@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.link {
+    padding: 24px 0;
+}
+
+.isActive {
+    color: #0b44cd;
+}
