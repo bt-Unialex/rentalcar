@@ -1,4 +1,5 @@
 import './App.css';
+import { Flip, ToastContainer } from 'react-toastify';
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -10,16 +11,24 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        <Route path="/" element={<MainPage />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/catalog/:id" element={<CarDetails />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Suspense>
+    <>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<MainPage />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/catalog/:id" element={<CarDetails />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+      <ToastContainer
+        newestOnTop={true}
+        closeOnClick={true}
+        theme="colored"
+        transition={Flip}
+      />
+    </>
   );
 }
 
