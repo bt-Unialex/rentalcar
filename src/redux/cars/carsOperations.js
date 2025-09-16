@@ -18,9 +18,6 @@ export const getCars = createAsyncThunk(
         Number(response.data.totalPages),
       );
 
-      console.log('cars:', response.data.cars);
-      console.log('paginationParams:', paginationParams);
-
       return { cars: response.data.cars, paginationParams };
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -30,9 +27,6 @@ export const getCars = createAsyncThunk(
 
 function calculatePaginationData(count, page, totalPages) {
   const hasNextPage = totalPages > page;
-  console.log('page', page);
-  console.log('page', page !== 1);
-
   const hasPreviousPage = page !== 1;
 
   return {
