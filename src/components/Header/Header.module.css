@@ -1,7 +1,8 @@
+.header {
+    background: #f2f4f7;
+}
+
 .wrapper {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 120px;
-    background: #f2f4f7;
 }

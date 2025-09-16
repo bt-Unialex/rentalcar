@@ -1,7 +1,4 @@
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.section {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../image/homePageImage.jpg');
     background-size: cover;
     background-position: center;
@@ -9,12 +6,12 @@
     padding-top: 436px;
     padding-bottom: 60px;
     margin-top: 4px;
+    color: #fff;
 }
 
 .title {
     font-size: 60px;
     line-height: 1.2;
-    color: #fff;
     margin-bottom: 16px;
 }
 
@@ -22,7 +19,6 @@
     font-size: 24px;
     font-weight: 600;
     line-height: 1.33;
-    color: #fff;
     margin-bottom: 40px;
 }
 
@@ -35,7 +31,6 @@
     border-radius: 12px;
     border: none;
     font-weight: 600;
-    color: #fff;
     transition: background-color 0.4s ease;
 }
 
