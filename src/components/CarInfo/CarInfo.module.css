@@ -1,0 +1,89 @@
+.wrapper {
+    max-width: 488px;
+    text-align: start;
+    padding-top: 20px;
+}
+
+.carDescription {
+    margin-bottom: 68px;
+}
+
+.carTitle {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    white-space: nowrap;
+    margin-bottom: 8px;
+}
+
+.idSpan {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #8d929a;
+}
+
+.idSpan:hover {
+    overflow: visible
+}
+
+.carLlocation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.locationSpan {
+    margin-left: 4px;
+}
+
+.mileageSpan {
+    margin-left: 16px;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: #3470ff;
+    margin-bottom: 32px;
+}
+
+.carProperties {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 772px;
+}
+
+.properties {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.iconLocation {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}

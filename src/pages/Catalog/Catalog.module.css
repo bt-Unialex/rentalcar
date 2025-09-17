@@ -1,3 +1,14 @@
-.wrapper {
-    padding: 84px 120px 124px;
+.section {
+    padding-top: 84px;
+    padding-bottom: 124px;
+}
+
+.noCars {
+    width: 100%;
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+    color: #8d929a;
 }

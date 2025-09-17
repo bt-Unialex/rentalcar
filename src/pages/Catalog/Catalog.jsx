@@ -11,6 +11,7 @@ import {
 } from '../../redux/cars/carsSelectors.js';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn.jsx';
 import { BounceLoader } from 'react-spinners';
+import Container from '../../components/Container/Container.jsx';
 
 export default function Catalog() {
   const carListRef = useRef(null);
@@ -38,22 +39,26 @@ export default function Catalog() {
   };
 
   return (
-    <section className={css.wrapper}>
-      <BounceLoader
-        size={200}
-        loading={loading}
-        color="#0b44cd"
-        cssOverride={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%,-50%)',
-          zIndex: 999,
-        }}
-      />
-      <FiltersBar />
-      {cars.cars.length > 0 && <CarsList ref={carListRef} cars={cars.cars} />}
-      {hasNextPage && <LoadMoreBtn loading={loading} onClick={loadMoreClick} />}
+    <section className={css.section}>
+      <Container>
+        <BounceLoader
+          size={200}
+          loading={loading}
+          color="#0b44cd"
+          cssOverride={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%,-50%)',
+            zIndex: 999,
+          }}
+        />
+        <FiltersBar />
+        {cars.cars.length > 0 && <CarsList ref={carListRef} cars={cars.cars} />}
+        {hasNextPage && (
+          <LoadMoreBtn loading={loading} onClick={loadMoreClick} />
+        )}
+      </Container>
     </section>
   );
 }

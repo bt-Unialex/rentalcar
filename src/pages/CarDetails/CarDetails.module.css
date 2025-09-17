@@ -1,0 +1,15 @@
+.section {
+    padding-top: 84px;
+    padding-bottom: 104px;
+}
+
+.wrapper {
+    display: flex;
+    gap: 72px;
+}
+
+.carPoster {
+    border-radius: 19px;
+    object-fit: cover;
+    margin-bottom: 40px;
+}
