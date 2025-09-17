@@ -31,6 +31,16 @@ export default function CarDetails() {
     loadCar();
   }, [id]);
 
+  const createOrder = values => {
+    const answer =
+      `Thank you ${values.name} for your order` +
+      (values.bookingDate
+        ? ` on ${values.bookingDate.toLocaleDateString('uk-UA')}`
+        : '') +
+      `!\nCheck ${values.email} for details.`;
+    toast.success(answer);
+  };
+
   return (
     <section className={css.section}>
       <Container>
@@ -57,7 +67,7 @@ export default function CarDetails() {
                   height={512}
                   className={css.carPoster}
                 />
-                <OrderForm car={car} />
+                <OrderForm createOrder={createOrder} />
               </div>
               <CarInfo car={car} />
             </div>

@@ -39,24 +39,26 @@ a {
   cursor: pointer;
 }
 
-input {
-  font-size: inherit;
+input,
+textarea {
   font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
   color: inherit;
 }
 
 textarea {
   resize: none;
-  color: inherit;
 }
 
 button {
   padding: 0;
   cursor: pointer;
-  color: inherit;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  color: inherit;
 }
 
 img {
