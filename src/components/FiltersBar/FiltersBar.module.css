@@ -1,0 +1,88 @@
+.form {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 56px;
+}
+
+.lable {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #8d929a;
+    text-align: left;
+}
+
+.select {
+    margin-top: 8px;
+    width: 204px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.mileageLabel {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #8d929a;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    text-align: left;
+}
+
+.inputWrapper {
+    margin-top: 8px;
+}
+
+
+.mileageMin {
+    border-radius: 12px 0 0 12px;
+    border: none;
+    border-right: 1px solid #dadde1;
+    width: 160px;
+    background-color: #f7f7f7;
+    outline: none;
+    padding: 12px 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.mileageMax {
+    border-radius: 0 12px 12px 0;
+    border: none;
+    width: 160px;
+    background-color: #f7f7f7;
+    outline: none;
+    padding: 12px 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.button {
+    display: block;
+    width: 156px;
+    padding: 12px;
+    color: #fff;
+    background-color: #3470ff;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.4s ease;
+}
+
+.button:hover,
+.button:focus {
+    background-color: #0b44cd;
+}

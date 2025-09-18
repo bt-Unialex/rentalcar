@@ -19,6 +19,11 @@ export async function fetchCarById(id) {
   return response.data;
 }
 
+export async function fetchBrands() {
+  const response = await axios.get('/brands');
+  return response.data;
+}
+
 function calculatePaginationData(count, page, totalPages) {
   const hasNextPage = totalPages > page;
   const hasPreviousPage = page !== 1;

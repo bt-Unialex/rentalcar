@@ -1,0 +1,16 @@
+.lable {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #8d929a;
+    text-align: left;
+}
+
+.select {
+    margin-top: 8px;
+    width: 204px;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+}

@@ -7,7 +7,7 @@ import {
   BsFuelPump,
   BsGear,
 } from 'react-icons/bs';
-import { formatData } from '../CarCard/utils/formatData.js';
+import { formatData } from '../../utils/formatData.js';
 
 export default function CarInfo({ car }) {
   const { type, city, country, mileage } = formatData(

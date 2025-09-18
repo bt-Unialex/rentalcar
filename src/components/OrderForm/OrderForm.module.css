@@ -35,6 +35,7 @@
     width: 576px;
     background-color: #f7f7f7;
     border: none;
+    outline: none;
 }
 
 .button {
