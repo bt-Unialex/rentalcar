@@ -2,7 +2,7 @@ import css from './SelectFilter.module.css';
 import Select from 'react-select';
 import { selectStyles } from './reactSelectStyles.js';
 
-export default function SelectBrand({
+export default function SelectFilter({
   name,
   placeholder = '',
   options,

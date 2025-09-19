@@ -12,6 +12,7 @@ import {
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn.jsx';
 import { BounceLoader } from 'react-spinners';
 import Container from '../../components/Container/Container.jsx';
+import { resetFilters } from '../../redux/filters/filtersSlice.js';
 
 export default function Catalog() {
   const carListRef = useRef(null);
@@ -24,6 +25,7 @@ export default function Catalog() {
   const hasNextPage = paginationParams.hasNextPage ?? false;
 
   useEffect(() => {
+    dispatch(resetFilters());
     dispatch(getCars());
   }, [dispatch]);
 
