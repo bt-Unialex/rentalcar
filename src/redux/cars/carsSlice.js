@@ -22,7 +22,9 @@ const initialCars = {
 const carsSlice = createSlice({
   name: 'cars',
   initialState: initialCars,
-  reducers: {},
+  reducers: {
+    resetCars: () => initialCars,
+  },
   extraReducers: builder => {
     builder
       .addCase(getCars.pending, handlePending)
@@ -36,4 +38,5 @@ const carsSlice = createSlice({
   },
 });
 
+export const { resetCars } = carsSlice.actions;
 export default carsSlice.reducer;

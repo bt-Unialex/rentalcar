@@ -12,43 +12,38 @@
     line-height: 1.33333;
     color: #8d929a;
     text-align: left;
+    margin-bottom: 8px;
 }
 
-.select {
-    margin-top: 8px;
-    width: 204px;
-    font-weight: 500;
-    font-size: 16px;
+.fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+    position: relative;
+    min-width: 320px;
 }
-
-.mileageLabel {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.33333;
-    color: #8d929a;
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    text-align: left;
-}
-
-.inputWrapper {
-    margin-top: 8px;
-}
-
 
 .mileageMin {
+    display: inline;
     border-radius: 12px 0 0 12px;
     border: none;
     border-right: 1px solid #dadde1;
     width: 160px;
     background-color: #f7f7f7;
     outline: none;
-    padding: 12px 24px;
+    padding: 12px 24px 12px 65px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.25;
     color: #101828;
+}
+
+.fieldset::before {
+    content: "From";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 24px
 }
 
 .mileageMax {
@@ -58,10 +53,19 @@
     background-color: #f7f7f7;
     outline: none;
     padding: 12px 24px;
+    padding: 12px 24px 12px 46px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.25;
     color: #101828;
+}
+
+.fieldset::after {
+    content: "To";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 118px
 }
 
 input[type="number"]::-webkit-outer-spin-button,

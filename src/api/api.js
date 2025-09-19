@@ -1,8 +1,8 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'https://car-rental-api.goit.global';
 
-export async function fetchCars(page = 1, limit = 12) {
-  const axiosParams = { page, limit };
+export async function fetchCars(page = 1, limit = 12, filters = {}) {
+  const axiosParams = { page, limit, ...filters };
   const response = await axios.get('/cars', { params: axiosParams });
 
   const paginationParams = calculatePaginationData(

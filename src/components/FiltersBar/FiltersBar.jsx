@@ -3,8 +3,18 @@ import SelectFilter from '../SelectFilter/SelectFilter.jsx';
 import { useEffect, useState } from 'react';
 import { fetchBrands } from '../../api/api.js';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import {
+  setBrand,
+  setMileageFrom,
+  setMileageTo,
+  setPrice,
+} from '../../redux/filters/filtersSlice.js';
+import { resetCars } from '../../redux/cars/carsSlice.js';
+import { getCars } from '../../redux/cars/carsOperations.js';
 
 export default function FiltersBar() {
+  const dispatch = useDispatch();
   // const [isLoading, setIsLoading] = useState(true);
   // const [isError, setIsError] = useState(false);
   const [brands, setBrands] = useState(null);
@@ -26,18 +36,28 @@ export default function FiltersBar() {
   }, []);
 
   const prices = [30, 40, 50, 60, 70, 80];
+
   const handleSubmit = event => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const values = Object.fromEntries(formData.entries());
-    console.log('values:', values);
+    // const formData = new FormData(event.target);
+    // const values = Object.fromEntries(formData.entries());
+    dispatch(resetCars());
+    dispatch(getCars());
   };
 
   const onBrandChange = option => {
-    console.log('Brand:', option);
+    dispatch(setBrand(option.value));
   };
   const onPriceChange = option => {
-    console.log('Price:', option);
+    dispatch(setPrice(option.value));
+  };
+  const onMinMileageChange = event => {
+    const value = event.target.valueAsNumber;
+    dispatch(setMileageFrom(value));
+  };
+  const onMaxMileageChange = event => {
+    const value = event.target.valueAsNumber;
+    dispatch(setMileageTo(value));
   };
   return (
     <form onSubmit={handleSubmit} className={css.form}>
@@ -57,48 +77,26 @@ export default function FiltersBar() {
       >
         Price/ 1 hour
       </SelectFilter>
-      {/* <label className={css.lable}>
-        Price/ 1 hour
-        <Select
-          className={css.select}
-          options={priceOptions}
-          css={selectStyles}
-          components={{
-            DropdownIndicator,
-            IndicatorSeparator: () => null,
-          }}
-          placeholder="Choose a price"
-          formatOptionLabel={(option, { context }) =>
-            context === 'menu' ? option.label : `To $${option.label}`
-          }
-          isLoading={!priceOptions.length}
-          name="rentalPrice"
-          value={values.rentalPrice.value}
-          onChange={option =>
-            setFieldValue('rentalPrice', option.value.toString())
-          }
+
+      <fieldset className={css.fieldset}>
+        <legend className={css.lable}>Car mileage / km</legend>
+        <input
+          className={css.mileageMin}
+          type="number"
+          name="minMileage"
+          min={0}
+          step={500}
+          onBlur={onMinMileageChange}
         />
-      </label> */}
-      {/* Mileage */}
-      <label className={css.lable}>
-        Car mileage / km
-        <div className={css.inputWrapper}>
-          <input
-            type="number"
-            name="minMileage"
-            id="minMileage"
-            className={css.mileageMin}
-            placeholder="From"
-          ></input>
-          <input
-            type="number"
-            name="maxMileage"
-            id="maxMileage"
-            className={css.mileageMax}
-            placeholder="To"
-          />
-        </div>
-      </label>
+        <input
+          className={css.mileageMax}
+          type="number"
+          name="maxMileage"
+          min={0}
+          step={500}
+          onBlur={onMaxMileageChange}
+        />
+      </fieldset>
       <button type="submit" className={css.button}>
         Search
       </button>
