@@ -13,6 +13,7 @@ import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn.jsx';
 import { BounceLoader } from 'react-spinners';
 import Container from '../../components/Container/Container.jsx';
 import { resetFilters } from '../../redux/filters/filtersSlice.js';
+import { resetCars } from '../../redux/cars/carsSlice.js';
 
 export default function Catalog() {
   const carListRef = useRef(null);
@@ -26,6 +27,7 @@ export default function Catalog() {
 
   useEffect(() => {
     dispatch(resetFilters());
+    dispatch(resetCars());
     dispatch(getCars());
   }, [dispatch]);
 
