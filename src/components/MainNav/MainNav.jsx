@@ -16,6 +16,7 @@ export default function MainNav() {
         className={({ isActive }) =>
           isActive ? `${css.link} ${css.isActive}` : css.link
         }
+        end
         to="/catalog"
       >
         Catalog

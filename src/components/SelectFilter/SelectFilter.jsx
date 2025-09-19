@@ -20,7 +20,7 @@ export default function SelectBrand({
   };
 
   return (
-    <label htmlFor={name} className={css.lable}>
+    <label className={css.lable}>
       {children}
       <Select
         className={css.select}
