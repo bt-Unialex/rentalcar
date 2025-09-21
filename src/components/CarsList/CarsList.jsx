@@ -2,7 +2,9 @@ import css from './CarsList.module.css';
 import CarCard from '../CarCard/CarCard.jsx';
 
 export default function CarsList({ cars, ref }) {
-  return (
+  const carsFound = cars.length > 0;
+
+  return carsFound ? (
     <ul ref={ref} className={css.wrapper}>
       {cars.map((car, index) => (
         <li key={car.id + '-' + index} className={css.item}>
@@ -10,5 +12,7 @@ export default function CarsList({ cars, ref }) {
         </li>
       ))}
     </ul>
+  ) : (
+    <p className={css.message}>No cars found</p>
   );
 }

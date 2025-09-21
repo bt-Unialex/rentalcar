@@ -5,3 +5,8 @@
     row-gap: 48px;
     justify-content: center;
 }
+
+.message {
+    font-weight: 600;
+    font-size: 24px;
+}
