@@ -1,10 +1,12 @@
 import css from './FiltersBar.module.css';
-import SelectFilter from '../SelectFilter/SelectFilter.jsx';
+import SelectFilter from '../SelectFilter/SelectFilter.jsx'; //component
 import { useEffect, useState } from 'react';
+import { RxCrossCircled } from 'react-icons/rx';
 import { fetchBrands } from '../../api/api.js';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
+  resetFilters,
   setBrand,
   setMileageFrom,
   setMileageTo,
@@ -12,12 +14,17 @@ import {
 } from '../../redux/filters/filtersSlice.js';
 import { resetCars } from '../../redux/cars/carsSlice.js';
 import { getCars } from '../../redux/cars/carsOperations.js';
+import { selectIsLoading } from '../../redux/cars/carsSelectors.js';
+import { selectFilters } from '../../redux/filters/filtersSelectors.js'; //selector
 
 export default function FiltersBar() {
   const dispatch = useDispatch();
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const carsloading = useSelector(selectIsLoading);
   // const [isError, setIsError] = useState(false);
   const [brands, setBrands] = useState(null);
+
+  const filters = useSelector(selectFilters);
 
   useEffect(() => {
     const getBrands = async () => {
@@ -28,12 +35,14 @@ export default function FiltersBar() {
       } catch (error) {
         // setIsError(true);
         toast.error(`Cant get brands list: ${error.message}`);
-        // } finally {
-        //   setIsLoading(false);
+      } finally {
+        setIsLoading(false);
       }
     };
     getBrands();
   }, []);
+
+  const hasFilters = Object.keys(filters).length > 0;
 
   const prices = [30, 40, 50, 60, 70, 80];
 
@@ -43,6 +52,10 @@ export default function FiltersBar() {
     // const values = Object.fromEntries(formData.entries());
     dispatch(resetCars());
     dispatch(getCars());
+  };
+  const handleReset = event => {
+    event.preventDefault();
+    dispatch(resetFilters());
   };
 
   const onBrandChange = option => {
@@ -60,11 +73,12 @@ export default function FiltersBar() {
     dispatch(setMileageTo(value));
   };
   return (
-    <form onSubmit={handleSubmit} className={css.form}>
+    <form onSubmit={handleSubmit} onReset={handleReset} className={css.form}>
       <SelectFilter
         name="brand"
         placeholder="Choose a brand"
         options={brands}
+        value={filters.brand}
         onChange={onBrandChange}
       >
         Car brand
@@ -73,11 +87,11 @@ export default function FiltersBar() {
         name="price"
         placeholder="Choose a price"
         options={prices}
+        value={filters.rentalPrice}
         onChange={onPriceChange}
       >
         Price/ 1 hour
       </SelectFilter>
-
       <fieldset className={css.fieldset}>
         <legend className={css.lable}>Car mileage / km</legend>
         <input
@@ -86,7 +100,8 @@ export default function FiltersBar() {
           name="minMileage"
           min={0}
           step={500}
-          onBlur={onMinMileageChange}
+          value={filters.minMileage || ''}
+          onChange={onMinMileageChange}
         />
         <input
           className={css.mileageMax}
@@ -94,12 +109,28 @@ export default function FiltersBar() {
           name="maxMileage"
           min={0}
           step={500}
-          onBlur={onMaxMileageChange}
+          value={filters.maxMileage || ''}
+          onChange={onMaxMileageChange}
         />
       </fieldset>
-      <button type="submit" className={css.button}>
-        Search
-      </button>
+      <div className={css.buttons}>
+        <button
+          type="submit"
+          className={css.button}
+          disabled={isLoading || carsloading}
+        >
+          Search
+        </button>
+        {hasFilters && (
+          <button
+            type="reset"
+            className={css.reset}
+            disabled={isLoading || carsloading}
+          >
+            <RxCrossCircled />
+          </button>
+        )}
+      </div>
     </form>
   );
 }

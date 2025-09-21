@@ -74,11 +74,15 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.buttons {
+    position: relative;
+    color: #fff;
+}
+
 .button {
     display: block;
     width: 156px;
     padding: 12px;
-    color: #fff;
     background-color: #3470ff;
     border-radius: 12px;
     border: none;
@@ -89,4 +93,26 @@ input[type="number"]::-webkit-inner-spin-button {
 .button:hover,
 .button:focus {
     background-color: #0b44cd;
+}
+
+.reset {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    padding: 12px;
+    background-color: transparent;
+    border-radius: 12px;
+    border: none;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.reset:hover,
+.reset:focus {
+    transform: scale(1.4) translateY(-35.7%);
 }

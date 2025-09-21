@@ -6,6 +6,7 @@ export default function SelectFilter({
   name,
   placeholder = '',
   options,
+  value,
   onChange,
   children,
 }) {
@@ -28,6 +29,7 @@ export default function SelectFilter({
         styles={selectStyles}
         placeholder={placeholder}
         name={name}
+        value={value ? { value: value, label: value } : null}
         onChange={handleChange}
         formatOptionLabel={(option, { context }) =>
           isNaN(option.label) || context === 'menu'
