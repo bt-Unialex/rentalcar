@@ -27,12 +27,15 @@
 
 .inputWrapper {
     position: relative;
+    border-radius: 12px;
+    background-color: #f7f7f7;
 }
 
 .input {
     border-radius: 12px;
     padding: 14px 20px;
-    width: 576px;
+    /* width: 576px; */
+    width: 100%;
     background-color: #f7f7f7;
     border: none;
     outline: none;

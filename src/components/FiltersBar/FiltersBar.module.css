@@ -3,6 +3,7 @@
     gap: 16px;
     justify-content: center;
     align-items: flex-end;
+    flex-wrap: wrap;
     margin-bottom: 56px;
 }
 
