@@ -1,12 +1,43 @@
-# React + Vite
+# RentalCar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description:
 
-Currently, two official plugins are available:
+RentalCar is a web application for car rentals that allows users to browse
+available vehicles, apply filters, view detailed car information, and add
+favorite cars to a personal list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## Expanding the ESLint configuration
+- Browse a list of cars with pagination.
+- Filter cars by brand, price, and mileage.
+- View detailed information about each car.
+- Add or remove cars from the favorites list.
+- Favorites are stored locally using `localStorage`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bt-Unialex/rentalcar
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Usage
+
+- Follow link http://localhost:5173.
+- Click on 'Catalog' to view all available cars.
+- Use the filters to find the desired car.
+- Click on "Read more" to view car detailed information.
+- Add cars to your favorites list for quick access later.
+
+## Author
+
+- Name: bt-Unialex
+- E-mail: [Unialex@ukr.net](mailto:unialex@ukr.net)
