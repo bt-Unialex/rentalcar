@@ -13,7 +13,7 @@ const handleRejected = (state, action) => {
 };
 
 const initialCars = {
-  cars: [],
+  cars: null,
   paginationParams: {},
   isLoading: true,
   error: null,
@@ -30,7 +30,7 @@ const carsSlice = createSlice({
       .addCase(getCars.pending, handlePending)
       .addCase(getCars.rejected, handleRejected)
       .addCase(getCars.fulfilled, (state, action) => {
-        state.cars = [...state.cars, ...action.payload.cars];
+        state.cars = [...(state.cars ?? []), ...action.payload.cars];
         state.paginationParams = action.payload.paginationParams;
         state.isLoading = false;
         state.error = null;

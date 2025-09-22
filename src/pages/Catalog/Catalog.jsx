@@ -24,6 +24,7 @@ export default function Catalog() {
   const paginationParams = useSelector(selectPaginationParams);
   const currentPage = paginationParams.page ?? 1;
   const hasNextPage = paginationParams.hasNextPage ?? false;
+  const isFirstLoading = cars.cars === null;
 
   useEffect(() => {
     dispatch(resetFilters());
@@ -32,14 +33,15 @@ export default function Catalog() {
   }, [dispatch]);
 
   const loadMoreClick = () => {
-    const endOfList = carListRef.current.scrollHeight;
-    dispatch(getCars({ page: currentPage + 1, limit: 12 }));
-    setTimeout(() => {
+    const startOfList = carListRef.current.offsetTop;
+    const listHeight = carListRef.current.scrollHeight;
+    const halfOfGap = 24;
+    dispatch(getCars({ page: currentPage + 1 })).then(() => {
       window.scrollTo({
-        top: endOfList + 175,
+        top: startOfList + listHeight + halfOfGap,
         behavior: 'smooth',
       });
-    }, 300);
+    });
   };
 
   return (
@@ -58,7 +60,7 @@ export default function Catalog() {
           }}
         />
         <FiltersBar />
-        {cars.cars.length > 0 && <CarsList ref={carListRef} cars={cars.cars} />}
+        {!isFirstLoading && <CarsList ref={carListRef} cars={cars.cars} />}
         {hasNextPage && (
           <LoadMoreBtn loading={loading} onClick={loadMoreClick} />
         )}
