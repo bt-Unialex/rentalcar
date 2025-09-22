@@ -66,6 +66,7 @@ export default function OrderForm({ createOrder }) {
             <div className={css.inputWrapper}>
               <DatePicker
                 id="bookingDate"
+                minDate={new Date()}
                 selected={values.bookingDate}
                 onChange={date => setFieldValue('bookingDate', date)}
                 dateFormat="dd MMMM yyyy"

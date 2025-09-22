@@ -56,6 +56,7 @@ export default function FiltersBar() {
   const handleReset = event => {
     event.preventDefault();
     dispatch(resetFilters());
+    dispatch(getCars());
   };
 
   const onBrandChange = option => {
@@ -99,7 +100,7 @@ export default function FiltersBar() {
           type="number"
           name="minMileage"
           min={0}
-          step={500}
+          // step={500}
           value={filters.minMileage || ''}
           onChange={onMinMileageChange}
         />
@@ -108,7 +109,7 @@ export default function FiltersBar() {
           type="number"
           name="maxMileage"
           min={0}
-          step={500}
+          // step={500}
           value={filters.maxMileage || ''}
           onChange={onMaxMileageChange}
         />
